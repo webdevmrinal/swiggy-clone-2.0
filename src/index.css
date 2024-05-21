@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+svg{
+  @apply inline-block
+}
+
+.header-items{
+  @apply h-full py-7 flex justify-center items-center gap-2 cursor-pointer hover:text-orange-500 hover:fill-orange-500
+}
+
+.location-btn{
+  @apply relative font-semibold border-b-2 border-black p-0 cursor-pointer hover:text-orange-500 hover:border-orange-500
+}
+.location-btn::after{
+  content: "∨";
+  @apply absolute -right-6 font-extrabold text-orange-600
+}
+
+.header-offers-button{
+  @apply relative
+}
+
+.header-offers-button::before{
+  content: "NEW";
+  @apply absolute font-extrabold text-[.65em] text-orange-400 -right-7
+}
