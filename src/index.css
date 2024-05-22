@@ -48,3 +48,13 @@ svg {
   border-radius: 50%;
   overflow: hidden;
 }
+
+.rest-chain-slider-indicator {
+  @apply h-1 w-12 bg-gray-200 rounded-full relative mx-auto;
+}
+
+.rest-chain-slider-indicator::before {
+  content: "";
+  left: calc(0% - 0.75rem);
+  @apply h-1 w-3 bg-orange-500 absolute rounded-full;
+}

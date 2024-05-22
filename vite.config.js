@@ -5,7 +5,8 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   server: {
     proxy: {
-      "/dapi": "https://www.swiggy.com",
+      // "/dapi": "https://www.swiggy.com",
+      "/api": "http://localhost:3001/",
     },
   },
   plugins: [react()],
