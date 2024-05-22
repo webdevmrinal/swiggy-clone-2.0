@@ -2,27 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-svg{
-  @apply inline-block
+svg {
+  @apply inline-block;
 }
 
-.header-items{
-  @apply h-full py-7 flex justify-center items-center gap-2 cursor-pointer hover:text-orange-500 hover:fill-orange-500
+.header-items {
+  @apply h-full py-7 flex justify-center items-center gap-2 cursor-pointer hover:text-orange-500 hover:fill-orange-500;
 }
 
-.location-btn{
-  @apply relative font-semibold border-b-2 border-black p-0 cursor-pointer hover:text-orange-500 hover:border-orange-500
+.location-btn {
+  @apply relative font-semibold border-b-2 border-black p-0 cursor-pointer hover:text-orange-500 hover:border-orange-500;
 }
-.location-btn::after{
+.location-btn::after {
   content: "∨";
-  @apply absolute -right-6 font-extrabold text-orange-600
+  @apply absolute -right-6 font-extrabold text-orange-600;
 }
 
-.header-offers-button{
-  @apply relative
+.header-offers-button {
+  @apply relative;
 }
 
-.header-offers-button::before{
+.header-offers-button::before {
   content: "NEW";
-  @apply absolute font-extrabold text-[.65em] text-orange-400 -right-7
+  @apply absolute font-extrabold text-[.65em] text-orange-400 -right-7;
+}
+
+.shimmer-spinner {
+  background: linear-gradient(
+    180deg,
+    #ecebeb,
+    hsla(0, 3%, 92%, 0.51) 53%,
+    hsla(0, 3%, 92%, 0)
+  );
+  @apply h-20 w-20 rounded-full animate-spin;
+}
+.shimmer-spinner::after {
+  position: absolute;
+  display: block;
+  top: 4px;
+  left: 4px;
+  width: 72px;
+  height: 72px;
+  content: "";
+  background-color: #171a29;
+  border-radius: 50%;
+  overflow: hidden;
 }

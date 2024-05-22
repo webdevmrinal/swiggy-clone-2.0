@@ -51,7 +51,7 @@ function DishesCarousel({ data }) {
   useEffect(() => {
     setImageArray(data?.card?.card?.imageGridCards?.info);
   }, [data]);
-  // console.log(imageArray);
+  console.log(data);
 
   return (
     <div
@@ -59,7 +59,9 @@ function DishesCarousel({ data }) {
       ref={containerRef}
     >
       <div className="flex justify-between">
-        <div className="text-2xl font-bold">What's on your mind?</div>{" "}
+        <div className="text-2xl font-bold">
+          {data?.card?.card?.header?.title}
+        </div>{" "}
         <div className="space-x-3">
           <button
             className="inline-block h-8 w-8 relative rounded-full bg-gray-300"
