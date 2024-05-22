@@ -1,3 +1,5 @@
+import qs from "qs"
+
 export const fetchRestaurants = async (params) => {
   try {
     const queryString = qs.stringify(params);
