@@ -26,7 +26,7 @@ function App() {
         "is-seo-homepage-enabled": true,
         page_type: "DESKTOP_WEB_LISTING",
       };
-      const restaurantData = await fetchRestaurants(params, setLoadingProgress);
+      const restaurantData = await fetchRestaurants(params);
       setData(restaurantData);
       setDataLoading(false);
     };
@@ -41,12 +41,9 @@ function App() {
       <div className="fixed top-0 z-50 w-full bg-white shadow-md">
         <Header />
       </div>
-      {!data || dataLoading ? (
+      {!data ? (
         <>
           <InitialShimmer />
-          <div className="text-center font-bold text-2xl">
-            Loading: {loadingProgress.toFixed(2)}%
-          </div>
         </>
       ) : (
         <div className="pt-20">
