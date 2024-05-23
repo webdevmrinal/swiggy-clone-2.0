@@ -41,7 +41,7 @@ function App() {
       <div className="fixed top-0 z-50 w-full bg-white shadow-md">
         <Header />
       </div>
-      {!data ? (
+      {!data || dataLoading? (
         <>
           <InitialShimmer />
         </>
