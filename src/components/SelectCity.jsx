@@ -21,7 +21,7 @@ const SelectCity = ({ setCoord }) => {
   };
 
   return (
-    <div>
+    <div className="absolute top-6 z-[51] left-4">
       <select onChange={handleCityChange}>
         <option value="">-- Select City --</option>
         {cities &&

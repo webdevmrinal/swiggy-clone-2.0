@@ -5,8 +5,13 @@ function RestaurantChains({ data }) {
   const [carouselOffset, setCarouselOffset] = useState(0);
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
   const [isRightDisabled, setIsRightDisabled] = useState(false);
+  const [slidePercentage, setSlidePercentage] = useState(0);
   const containerRef = useRef(null);
-  const imageRefs = useRef([]);
+
+  const mapPercentage = (percentage) => {
+    const maxWidth = 100 - 12; // Maximum width minus 12px
+    return (percentage / 100) * maxWidth;
+  };
 
   const handleSlider = (direction) => {
     const totalImagesWidth =
@@ -43,11 +48,18 @@ function RestaurantChains({ data }) {
         setIsRightDisabled(false);
       }
     }
+    const totalSlides = Math.ceil(totalImagesWidth / containerWidth);
+    const currentSlide = Math.floor(carouselOffset / containerWidth);
+    const slidePercentage = (currentSlide / (totalSlides - 1)) * 100;
+
+    const mappedSlidePercentage = mapPercentage(slidePercentage);
+    // console.log(slidePercentage);
+    setSlidePercentage(mappedSlidePercentage);
   };
 
   return (
-    <div className="w-[1150px] mx-auto p-4">
-      <div className="flex justify-between">
+    <div className="w-[1350px] mx-auto px-4 pb-12">
+      <div className="flex justify-between pt-10  border-t-2">
         <div className="font-bold text-2xl">
           {data?.card?.card?.header?.title}
         </div>
@@ -98,7 +110,7 @@ function RestaurantChains({ data }) {
           </button>
         </div>
       </div>
-      <div className="pl-8 w-full overflow-hidden" ref={containerRef}>
+      <div className="px-4 w-full overflow-hidden" ref={containerRef}>
         <div
           className="flex"
           style={{
@@ -116,7 +128,10 @@ function RestaurantChains({ data }) {
             )}
         </div>
       </div>
-      <div className="rest-chain-slider-indicator"></div>
+      <div
+        className="rest-chain-slider-indicator"
+        style={{ "--slidePercentage": `${slidePercentage}%` }}
+      />
     </div>
   );
 }
@@ -124,19 +139,14 @@ function RestaurantChains({ data }) {
 const RestaurantCard = ({ data }) => {
   if (!data) return;
   return (
-    <div className=" py-6 inline-block">
+    <div className=" py-6 inline-block cursor-pointer hover:scale-95 transition-all">
       <div className="w-80">
         <div
-          className="w-72 h-48 border rounded-xl bg-cover bg-center relative overflow-hidden"
+          className="w-72 h-48 rounded-xl bg-cover bg-center relative overflow-hidden"
           style={{
             backgroundImage: `url(https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${data.info.cloudinaryImageId})`,
           }}
         >
-          {/* <img
-      className=""
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7"
-        alt=""
-      /> */}
           <div
             className="w-full font-extrabold uppercase text-2xl text-white absolute bottom-0"
             style={{
@@ -156,10 +166,10 @@ const RestaurantCard = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="font-semibold text-lg px-3 pt-2 text-ellipsis whitespace-nowrap overflow-hidden w-full">
+        <div className="font-semibold text-lg pl-3 pr-5 pt-2 text-ellipsis whitespace-nowrap overflow-hidden w-full">
           {data.info.name}
         </div>
-        <div className="font-semibold flex gap-1 px-3">
+        <div className="font-semibold flex gap-1 pl-3 pr-5">
           <span className="flex items-center justify-center space-x-1">
             <svg
               width={20}
@@ -200,13 +210,13 @@ const RestaurantCard = ({ data }) => {
           <span> • </span>
           <span>{data.info.sla.slaString}</span>
         </div>
-        <div className="font-light px-3 text-ellipsis whitespace-nowrap overflow-hidden w-full">
+        <div className="font-light pl-3 pr-5 text-ellipsis whitespace-nowrap overflow-hidden w-full">
           {data.info.cuisines.map((cuisine, index) => {
             if (index === data.info.cuisines.length - 1) return cuisine + "";
             else return cuisine + ", ";
           })}
         </div>
-        <div className="font-light px-3">{data.info.areaName}</div>
+        <div className="font-light pl-3 pr-5">{data.info.areaName}</div>
       </div>
     </div>
   );

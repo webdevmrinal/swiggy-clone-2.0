@@ -50,11 +50,16 @@ svg {
 }
 
 .rest-chain-slider-indicator {
-  @apply h-1 w-12 bg-gray-200 rounded-full relative mx-auto;
+  --slidePercentage:0%;
+  @apply h-1 w-12 bg-gray-200 rounded-full relative mx-auto overflow-hidden;
 }
 
 .rest-chain-slider-indicator::before {
   content: "";
-  left: calc(0% - 0.75rem);
-  @apply h-1 w-3 bg-orange-500 absolute rounded-full;
+  left: var(--slidePercentage);
+  @apply h-1 w-3 bg-orange-500 absolute rounded-full transition-all;
+  
+}
+.filter-buttons{
+  @apply border rounded-full px-4 py-2 shadow-sm cursor-pointer
 }

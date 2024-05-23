@@ -2,7 +2,7 @@ import React from "react";
 
 const InitialShimmer = () => {
   return (
-    <div className="h-[340px] bg-[#171a29] text-slate-300 font-normal flex items-center justify-center flex-col gap-6">
+    <div className="h-[340px] mt-20 bg-[#171a29] text-slate-300 font-normal flex items-center justify-center flex-col gap-6">
       <div className="relative w-fit">
         <div className="shimmer-spinner"></div>
         <img

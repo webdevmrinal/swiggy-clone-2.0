@@ -55,7 +55,7 @@ function DishesCarousel({ data }) {
 
   return (
     <div
-      className="p-4 w-[1150px] h-64 mx-auto overflow-hidden"
+      className="px-4 pt-4 w-[1350px] h-64 mx-auto overflow-hidden"
       ref={containerRef}
     >
       <div className="flex justify-between">
