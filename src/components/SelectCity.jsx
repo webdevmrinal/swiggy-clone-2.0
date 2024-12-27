@@ -25,7 +25,7 @@ const SelectCity = ({ setCoord }) => {
       <select onChange={handleCityChange}>
         <option value="">-- Select City --</option>
         {cities &&
-          cities.map((city) => (
+          cities?.map((city) => (
             <option key={city.city} value={city.city}>
               {city.city}
             </option>

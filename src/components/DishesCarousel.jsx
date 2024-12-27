@@ -116,7 +116,7 @@ function DishesCarousel({ data }) {
           transition: "transform .5s ease-in-out",
         }}
       >
-        {imageArray.map((item, index) => {
+        {imageArray?.map((item, index) => {
           return (
             <img
               key={item?.imageId}

@@ -11,7 +11,7 @@ const BestRestaurants = ({ data }) => {
   const renderBrands = () => {
     if (!data?.card?.card?.brands) return null;
 
-    return data.card.card.brands.map((city, index) => {
+    return data.card.card.brands?.map((city, index) => {
       if (!showAll && index >= 11) {
         if (index === 11) {
           return (

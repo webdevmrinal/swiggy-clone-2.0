@@ -54,7 +54,7 @@ const RestaurantsList = ({ data, headerData }) => {
         <div className="filter-buttons">Less than 300</div>
       </div>
       <div className="grid grid-cols-4 gap-4">
-        {data?.card?.card?.gridElements?.infoWithStyle?.restaurants.map(
+        {data?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
           (restaurant) => {
             return (
               <RestaurantCard data={restaurant} key={restaurant.info.id} />
@@ -135,7 +135,7 @@ const RestaurantCard = ({ data }) => {
         <div>{data?.info?.sla?.slaString}</div>
       </div>
       <div className="font-light pl-3 pr-5 text-ellipsis whitespace-nowrap overflow-hidden w-full">
-        {data?.info?.cuisines.map((item, index) => {
+        {data?.info?.cuisines?.map((item, index) => {
           if (index === data?.info?.cuisines.length - 1) return item;
           else return item + ", ";
         })}

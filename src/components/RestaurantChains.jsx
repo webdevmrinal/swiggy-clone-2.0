@@ -119,7 +119,7 @@ function RestaurantChains({ data }) {
           }}
         >
           {data &&
-            data?.card?.card?.gridElements?.infoWithStyle?.restaurants.map(
+            data?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
               (restaurant) => {
                 return (
                   <RestaurantCard data={restaurant} key={restaurant.info.id} />
@@ -211,7 +211,7 @@ const RestaurantCard = ({ data }) => {
           <span>{data.info.sla.slaString}</span>
         </div>
         <div className="font-light pl-3 pr-5 text-ellipsis whitespace-nowrap overflow-hidden w-full">
-          {data.info.cuisines.map((cuisine, index) => {
+          {data.info.cuisines?.map((cuisine, index) => {
             if (index === data.info.cuisines.length - 1) return cuisine + "";
             else return cuisine + ", ";
           })}
